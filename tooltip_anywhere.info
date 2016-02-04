@@ -1,1 +1,4 @@
 name = tooltip anywhere
+description = Provides tooltip site wide on page load or with ajax calls.
+package = Tooltip
+core = 7.x

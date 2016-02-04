@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Enables tooltip sitewide.
+ */
+
+/**
+ * Implements hook_init().
+ */
+function tooltip_anywhere_init() {
+  $scripts = "(function($) {
+    $(document).ready(function() {
+      $('.tooltip').tooltipster();
+    });
+  })(jQuery);";
+  drupal_add_js($scripts, 'inline');
+  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/jquery.tooltipster.min.js');
+  drupal_add_css(drupal_get_path('module', 'tooltip_anywhere') . '/css/tooltipster.css');
+}
+
+/**
+ * Get tool tip by ajax or on page load; works in each case.
+ */
+function tooltipster_get_tooltip($selector, $type = NULL, $content = NULL, $position = NULL, $others = NULL) {
+  if (empty($position)) {
+    $position = "bottom";
+  }
+  if (empty($content)) {
+    $content = t("No content available.");
+  }
+  if (!is_array($others)) {
+    $others = array('theme' => 'tooltipster-default');
+  }
+  if ($type === "id") {
+    $selector = "#" . $selector;
+  } else if($type === "class") {
+    $selector = "." . $selector;
+  }
+  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js');
+  $data = array();
+  $data['selector'][] = $selector;
+  $data['position'][] = $position;
+  $data['properties'][] = $others;
+  $data['content'][] = $content;
+  drupal_add_js(array('vars' => $data), 'setting');
+}
