@@ -5,6 +5,8 @@
  * Enables tooltip sitewide.
  */
 
+define('TOOLTIPSTER_PATH', 'sites/all/libraries/tooltipster');
+
 /**
  * Implements hook_init().
  */
@@ -15,8 +17,9 @@ function tooltip_anywhere_init() {
     });
   })(jQuery);";
   drupal_add_js($scripts, 'inline');
-  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/jquery.tooltipster.min.js');
-  drupal_add_css(drupal_get_path('module', 'tooltip_anywhere') . '/css/tooltipster.css');
+  // Attach tooltipster files
+  drupal_add_css(TOOLTIPSTER_PATH .'/tooltipster.css');
+  drupal_add_js(TOOLTIPSTER_PATH .'/jquery.tooltipster.min.js');
 }
 
 /**
