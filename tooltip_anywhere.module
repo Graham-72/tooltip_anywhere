@@ -5,7 +5,7 @@
  * Enables tooltip sitewide.
  */
 
-define('TOOLTIPSTER_PATH', 'sites/all/libraries/tooltipster');
+define('TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH', 'sites/all/libraries/tooltipster');
 
 /**
  * Implements hook_init().
@@ -20,8 +20,8 @@ function tooltip_anywhere_init() {
   // Attach tooltip anyhwhere module js file.
   drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js');
   // Attach tooltipster files.
-  drupal_add_css(TOOLTIPSTER_PATH .'/tooltipster.css');
-  drupal_add_js(TOOLTIPSTER_PATH .'/jquery.tooltipster.min.js');
+  drupal_add_css(TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/tooltipster.css');
+  drupal_add_js(TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/jquery.tooltipster.min.js');
 }
 
 /**
@@ -39,7 +39,7 @@ function tooltipster_get_tooltip($selector, $type = NULL, $content = NULL, $posi
   }
   if ($type === "id") {
     $selector = "#" . $selector;
-  } else if($type === "class") {
+  } elseif ($type === "class") {
     $selector = "." . $selector;
   }
   $data = array();

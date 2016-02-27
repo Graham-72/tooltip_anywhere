@@ -5,18 +5,19 @@
         var type_tooltip = '';
         var sel = Drupal.settings.vars.selector.length;
         var inputObj = '';
-        for(var i = 0; i < sel; i++) {
+        for (var i = 0; i < sel; i++) {
 
           var processed = false;
           type_tooltip = Drupal.settings.vars.type[i];
           switch (type_tooltip) {
-            case 'id' :
-            case 'class' :
+            case 'id':
+            case 'class':
               if ($(Drupal.settings.vars.selector[i]).hasClass("tooltipstered")) {
                 processed = true;
               }
               break;
-            default :
+
+            default:
               if ($(Drupal.settings.vars.selector[i]).hasClass("tooltipstered")) {
                 processed = true;
               }
