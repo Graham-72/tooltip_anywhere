@@ -17,7 +17,9 @@ function tooltip_anywhere_init() {
     });
   })(jQuery);";
   drupal_add_js($scripts, 'inline');
-  // Attach tooltipster files
+  // Attach tooltip anyhwhere module js file.
+  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js');
+  // Attach tooltipster files.
   drupal_add_css(TOOLTIPSTER_PATH .'/tooltipster.css');
   drupal_add_js(TOOLTIPSTER_PATH .'/jquery.tooltipster.min.js');
 }
@@ -40,8 +42,8 @@ function tooltipster_get_tooltip($selector, $type = NULL, $content = NULL, $posi
   } else if($type === "class") {
     $selector = "." . $selector;
   }
-  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js');
   $data = array();
+  $data['type'][] = $type;
   $data['selector'][] = $selector;
   $data['position'][] = $position;
   $data['properties'][] = $others;
