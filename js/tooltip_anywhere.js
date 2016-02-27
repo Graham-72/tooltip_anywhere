@@ -4,7 +4,7 @@
  */
 (function ($) {
   Drupal.behaviors.tooltip_anywhere = {
-    attach:function (context, settings) {
+    attach: function (context, settings) {
       if (Drupal.settings.vars) {
         var type_tooltip = '';
         var sel = Drupal.settings.vars.selector.length;
@@ -32,7 +32,7 @@
             inputObj = {
               content: Drupal.settings.vars.content[i],
               position: Drupal.settings.vars.position[i],
-              theme: Drupal.settings.vars.properties[i].theme,
+              theme: Drupal.settings.vars.properties[i].theme
             };
             $(Drupal.settings.vars.selector[i]).tooltipster(inputObj);
           }
@@ -40,6 +40,6 @@
         }
 
       }
-    },
+    }
   };
 })(jQuery);
