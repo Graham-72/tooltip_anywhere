@@ -8,9 +8,9 @@
 define('TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH', 'sites/all/libraries/tooltipster');
 
 /**
- * Implements hook_init().
+ * Initialization of tooltip_anywhere (on each page).
  */
-function tooltip_anywhere_init() {
+function tooltip_anywhere_page_build(&$page) {
   $scripts = "(function($) {
     $(document).ready(function() {
       $('.tooltip').tooltipster();
@@ -27,7 +27,7 @@ function tooltip_anywhere_init() {
 /**
  * Get tool tip by ajax or on page load; works in each case.
  */
-function tooltipster_get_tooltip($selector, $type = NULL, $content = NULL, $position = NULL, $others = NULL) {
+function tooltip_anywhere_initialize($selector, $type = NULL, $content = NULL, $position = NULL, $others = NULL) {
   if (empty($position)) {
     $position = "bottom";
   }
