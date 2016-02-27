@@ -39,7 +39,8 @@ function tooltipster_get_tooltip($selector, $type = NULL, $content = NULL, $posi
   }
   if ($type === "id") {
     $selector = "#" . $selector;
-  } elseif ($type === "class") {
+  }
+  elseif ($type === "class") {
     $selector = "." . $selector;
   }
   $data = array();

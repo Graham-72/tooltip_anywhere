@@ -1,3 +1,7 @@
+/**
+ * @file
+ * Includes tooltip anywhere module js handling.
+ */
 (function ($) {
   Drupal.behaviors.tooltip_anywhere = {
     attach:function (context, settings) {
