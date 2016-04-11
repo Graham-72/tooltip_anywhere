@@ -5,7 +5,7 @@
 (function ($) {
   Drupal.behaviors.tooltip_anywhere = {
     attach: function (context, settings) {
-      if (Drupal.settings.vars) {
+      if (typeof Drupal.settings.vars.selector !== 'undefined') {
         var type_tooltip = '';
         var sel = Drupal.settings.vars.selector.length;
         var inputObj = '';
