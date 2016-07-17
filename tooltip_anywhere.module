@@ -15,12 +15,26 @@ function tooltip_anywhere_page_build(&$page) {
       $('.tooltip').tooltipster();
     });
   })(jQuery);";
-  drupal_add_js($scripts, 'inline');
-  // Attach tooltip anyhwhere module js file.
-  drupal_add_js(drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js');
-  // Attach tooltipster files.
-  drupal_add_css(TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/tooltipster.css');
-  drupal_add_js(TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/jquery.tooltipster.min.js');
+  $page['#attached']['js'][] = array(
+    'data' => $scripts,
+    'scope' => 'header',
+    'type' => 'inline',
+  );
+  $page['page_top']['tooltip_anywhere_main_js']['#attached']['js'] = array(
+    drupal_get_path('module', 'tooltip_anywhere') . '/js/tooltip_anywhere.js' => array(
+      'every_page' => TRUE,
+    ),
+  );
+  $page['page_top']['tooltip_anywhere_main_css']['#attached']['css'] = array(
+    TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/tooltipster.css' => array(
+      'every_page' => TRUE,
+    ),
+  );
+  $page['page_top']['tooltip_anywhere_library_js']['#attached']['js'] = array(
+    TOOLTIP_ANYWHERE_TOOLTIPSTER_PATH . '/jquery.tooltipster.min.js' => array(
+      'every_page' => TRUE,
+    ),
+  );
 }
 
 /**
