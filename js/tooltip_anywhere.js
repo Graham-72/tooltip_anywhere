@@ -4,7 +4,7 @@
  */
 
 (function ($) {
-  "use strict";
+  'use strict';
   Drupal.behaviors.tooltip_anywhere = {
     attach: function (context, settings) {
       if (typeof Drupal.settings.vars !== 'undefined') {
