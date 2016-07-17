@@ -2,7 +2,9 @@
  * @file
  * Includes tooltip anywhere module js handling.
  */
+
 (function ($) {
+  "use strict";
   Drupal.behaviors.tooltip_anywhere = {
     attach: function (context, settings) {
       if (typeof Drupal.settings.vars !== 'undefined') {
@@ -17,13 +19,13 @@
             switch (type_tooltip) {
               case 'id':
               case 'class':
-                if ($(Drupal.settings.vars.selector[i]).hasClass("tooltipstered")) {
+                if ($(Drupal.settings.vars.selector[i]).hasClass('tooltipstered')) {
                   processed = true;
                 }
                 break;
 
               default:
-                if ($(Drupal.settings.vars.selector[i]).hasClass("tooltipstered")) {
+                if ($(Drupal.settings.vars.selector[i]).hasClass('tooltipstered')) {
                   processed = true;
                 }
                 break;
