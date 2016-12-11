@@ -7,8 +7,9 @@ Installation instructions:
 *************************
 1. First enable the module from Drush or by administrator interface.
 2. Download tooltipster library - http://iamceege.github.io/tooltipster
-3. Put js and css files of library in sites/all/libraries folder.
-4. Done.
+3. Create a folder tooltipster in sites/all/libraries directory.
+4. Put js and css files of library in tooltipster folder created in step 3.
+5. Done.
 
 
 Tooltip look and feel changes:
